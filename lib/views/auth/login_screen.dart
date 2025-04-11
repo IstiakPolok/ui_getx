@@ -96,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 500,
               height: 60,
               child: CustomButton(
-                text: "Login",
+                text: "Sign In",
                 onPressed: () {
                   Get.snackbar("Success", "Login Successful");
                   Get.toNamed(AppRoutes.enableLocation);

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../routes/app_routes.dart';
 
 class LanguageSelectionScreen extends StatefulWidget {
   const LanguageSelectionScreen({super.key});
@@ -134,7 +138,7 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
                 height: 54,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Action for Continue
+                    Get.toNamed(AppRoutes.splash);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF1B6EF7),
