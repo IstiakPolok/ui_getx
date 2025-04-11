@@ -31,7 +31,7 @@ class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
             children: [
               const SizedBox(height: 10),
 
-              // Custom back button
+
               Align(
                 alignment: Alignment.topLeft,
                 child: Container(

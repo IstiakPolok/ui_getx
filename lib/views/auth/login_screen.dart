@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 20),
 
-            // Remember Me + Forgot Password Row
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 text: "Login",
                 onPressed: () {
                   Get.snackbar("Success", "Login Successful");
-                  Get.toNamed(AppRoutes.selectLanguage);
+                  Get.toNamed(AppRoutes.enableLocation);
                 },
               ),
             ),

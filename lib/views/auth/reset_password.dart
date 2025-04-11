@@ -13,34 +13,60 @@ class ResetPasswordScreen extends StatelessWidget {
     final confirmPasswordController = TextEditingController();
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Reset Password")),
+      appBar: AppBar(backgroundColor: Colors.transparent,),
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
           children: [
-            const SizedBox(height: 40),
+
+            const SizedBox(height: 20),
+            const Text("Reset Password", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w900)),
+            const SizedBox(height: 5),
+            Center(child: const Text("Your password must be at least 8 characters")),
+            Center(child: const Text("long and include a combination of letters, ")),
+            Center(child: const Text("numbers")),
+            const SizedBox(height: 30),
+            Container(
+              alignment: Alignment.centerLeft,
+              child: const Text(
+                "New Password",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+            ),
+            const SizedBox(height: 15),
             CustomTextField(
               controller: passwordController,
-
               obscureText: true,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
+            Container(
+              alignment: Alignment.centerLeft,
+              child: const Text(
+                "New Password",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+            ),
+            const SizedBox(height: 15),
             CustomTextField(
               controller: confirmPasswordController,
 
               obscureText: true,
             ),
             const SizedBox(height: 30),
-            CustomButton(
-              text: "Reset Password",
-              onPressed: () {
-                if (passwordController.text == confirmPasswordController.text) {
-                  Get.snackbar("Success", "Password reset successfully");
-                  Get.toNamed(AppRoutes.login);
-                } else {
-                  Get.snackbar("Error", "Passwords do not match");
-                }
-              },
+            SizedBox(
+              width: 500,
+              height: 60,
+              child: CustomButton(
+                text: "Submit",
+                onPressed: () {
+                  if (passwordController.text == confirmPasswordController.text) {
+                    //Get.snackbar("Success", "Password reset successfully");
+                    Get.toNamed(AppRoutes.verifyCode);
+                  } else {
+                    Get.snackbar("Error", "Passwords do not match");
+                  }
+                },
+              ),
             ),
           ],
         ),
