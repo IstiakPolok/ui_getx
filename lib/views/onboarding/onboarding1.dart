@@ -13,29 +13,66 @@ class OnboardingScreen1 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/2.png ', height: 300),
+            Image.asset("assets/images/2.png", height: 400),
 
-            const SizedBox(height: 40),
+
             const Text(
-              "Welcome to Theory Test",
+              "Best online courses ",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            const Text(
+              "in the word",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
             const Text(
-              "Prepare for your driving test with interactive tools and learning materials.",
+              "Now you can learn anywhere, anytime, even if there is no internet access!",
               style: TextStyle(fontSize: 16),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 40),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueAccent,
-                foregroundColor: Colors.white,
-              ),
 
-              onPressed: () => Get.toNamed(AppRoutes.onboarding2),
-              child: const Text("Next"),
+            Padding(
+              padding: const EdgeInsets.all(40.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 10,
+                    height: 10,
+                    decoration: const BoxDecoration(
+
+                      color: Color(0xFF1B6EF7),
+                      // Blue dot
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                  const SizedBox(width: 10), // Space between the dots
+                  Container(
+                    width: 10,
+                    height: 10,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFD6E9FF),// Light blue dot
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              width: 500,
+              height: 40,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF1B6EF7),
+                  foregroundColor: Colors.white,
+                ),
+
+                onPressed: () => Get.toNamed(AppRoutes.onboarding2),
+                child: const Text("Next"),
+              ),
             ),
           ],
         ),

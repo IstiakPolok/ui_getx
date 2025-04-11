@@ -17,10 +17,18 @@ class SplashScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Image.asset('assets/images/2.png ', height: 300),
+            SizedBox(
+              height: 300,
+            ),
+            Image.asset("assets/images/1.png", height: 100),
             Text(
-              "Theory Test in my",
+              "Theory Test in my Language",
               style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            ),
+            const Text(
+              "I must write the real test will be in English language and this app just helps you to understand the materials in your language",
+              style: TextStyle(fontSize: 16),
+              textAlign: TextAlign.center,
             ),
           ],
         ),
