@@ -51,6 +51,10 @@ class OnboardingScreen2 extends StatelessWidget {
               height: 40,
 
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF1B6EF7),
+                  foregroundColor: Colors.white,
+                ),
 
                 onPressed: () => Get.toNamed('/login'),
                 child: const Text("Get Started"),

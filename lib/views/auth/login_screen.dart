@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../routes/app_routes.dart';
@@ -25,6 +26,11 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             const SizedBox(height: 50),
             Image.asset("assets/images/4.png", height: 100),
+            const SizedBox(height: 20),
+            const Text("Welcome Back!", style: TextStyle(fontSize: 32, fontWeight: FontWeight.w900)),
+            const SizedBox(height: 5),
+            const Text("Please login first to start your Theory Test."),
+            const SizedBox(height: 30),
 
             Container(
               alignment: Alignment.centerLeft,
@@ -59,6 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   children: [
                     Checkbox(
+                      activeColor: const Color(0xFF1B6EF7),
                       value: rememberMe,
                       onChanged: (value) {
                         setState(() {
@@ -78,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                   child: const Text(
                     "Forgot Password",
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Colors.grey,fontSize: 16),
                   ),
                 ),
               ],
@@ -87,7 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 20),
             SizedBox(
               width: 500,
-              height: 40,
+              height: 60,
               child: CustomButton(
                 text: "Login",
                 onPressed: () {
@@ -97,10 +104,26 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             const SizedBox(height: 30),
-            TextButton(
-              onPressed: () => Get.toNamed(AppRoutes.signup),
-              child: const Text("Don't have an account? Sign Up"),
+            RichText(
+              text: TextSpan(
+                text: 'New to Theory Test? ',
+                style: const TextStyle(color: Colors.grey, fontSize: 14),
+                children: [
+                  TextSpan(
+                    text: 'Create Account',
+                    style: const TextStyle(
+                      color: Color(0xFF1B6EF7),
+                      fontWeight: FontWeight.bold,
+                    ),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Get.toNamed(AppRoutes.signup);
+                      },
+                  ),
+                ],
+              ),
             ),
+
           ],
         ),
       ),
