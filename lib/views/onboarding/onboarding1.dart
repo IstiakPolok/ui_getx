@@ -48,12 +48,12 @@ class OnboardingScreen1 extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                   ),
-                  const SizedBox(width: 10), // Space between the dots
+                  const SizedBox(width: 10),
                   Container(
                     width: 10,
                     height: 10,
                     decoration: const BoxDecoration(
-                      color: Color(0xFFD6E9FF),// Light blue dot
+                      color: Color(0xFFD6E9FF),
                       shape: BoxShape.circle,
                     ),
                   ),

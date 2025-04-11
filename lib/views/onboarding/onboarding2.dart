@@ -29,17 +29,16 @@ class OnboardingScreen2 extends StatelessWidget {
                     height: 10,
                     decoration: const BoxDecoration(
                       color: Color(0xFFD6E9FF),
-                       // Blue dot
+
                       shape: BoxShape.circle,
                     ),
                   ),
-                  const SizedBox(width: 10), // Space between the dots
+                  const SizedBox(width: 10),
                   Container(
                     width: 10,
                     height: 10,
                     decoration: const BoxDecoration(
-                      color: Color(0xFF1B6EF7),// Light blue dot
-                      shape: BoxShape.circle,
+                      color: Color(0xFF1B6EF7),
                     ),
                   ),
                 ],
