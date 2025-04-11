@@ -26,8 +26,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             const SizedBox(height: 20),
             CustomTextField(
               controller: emailController,
-              hintText: 'Email',
-              icon: Icons.email,
+
             ),
             const SizedBox(height: 30),
             CustomButton(

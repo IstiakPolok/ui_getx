@@ -21,15 +21,13 @@ class ResetPasswordScreen extends StatelessWidget {
             const SizedBox(height: 40),
             CustomTextField(
               controller: passwordController,
-              hintText: 'New Password',
-              icon: Icons.lock,
+
               obscureText: true,
             ),
             const SizedBox(height: 20),
             CustomTextField(
               controller: confirmPasswordController,
-              hintText: 'Confirm Password',
-              icon: Icons.lock_outline,
+
               obscureText: true,
             ),
             const SizedBox(height: 30),

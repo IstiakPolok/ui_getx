@@ -23,7 +23,7 @@ class SplashScreen extends StatelessWidget {
             Image.asset("assets/images/1.png", height: 100),
             Text(
               "Theory Test in my Language",
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),textAlign: TextAlign.center,
             ),
             const Text(
               "I must write the real test will be in English language and this app just helps you to understand the materials in your language",

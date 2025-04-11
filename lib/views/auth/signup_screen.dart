@@ -22,20 +22,17 @@ class SignUpScreen extends StatelessWidget {
             const SizedBox(height: 40),
             CustomTextField(
               controller: nameController,
-              hintText: 'Full Name',
-              icon: Icons.person,
+
             ),
             const SizedBox(height: 20),
             CustomTextField(
               controller: emailController,
-              hintText: 'Email',
-              icon: Icons.email,
+
             ),
             const SizedBox(height: 20),
             CustomTextField(
               controller: passwordController,
-              hintText: 'Password',
-              icon: Icons.lock,
+
               obscureText: true,
             ),
             const SizedBox(height: 30),
