@@ -1,63 +1,157 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../routes/app_routes.dart';
-import '../../widgets/custom_button.dart';
 
-class SelectLanguageScreen extends StatefulWidget {
-  const SelectLanguageScreen({super.key});
+class LanguageSelectionScreen extends StatefulWidget {
+  const LanguageSelectionScreen({super.key});
 
   @override
-  State<SelectLanguageScreen> createState() => _SelectLanguageScreenState();
+  State<LanguageSelectionScreen> createState() => _LanguageSelectionScreenState();
 }
 
-class _SelectLanguageScreenState extends State<SelectLanguageScreen> {
-  String? selectedLanguage;
+class _LanguageSelectionScreenState extends State<LanguageSelectionScreen> {
+  String selectedLanguage = "English (US)";
 
-  final List<String> languages = [
-    'English',
-    'Spanish',
-    'French',
-    'German',
-    'Arabic',
+  final List<Map<String, String>> languages = [
+    {"name": "English (US)", "flag": "🇺🇸"},
+    {"name": "Indonesia", "flag": "🇮🇩"},
+    {"name": "Afghanistan", "flag": "🇦🇫"},
+    {"name": "Algeria", "flag": "🇩🇿"},
+    {"name": "Malaysia", "flag": "🇲🇾"},
+    {"name": "Arabic", "flag": "🇦🇪"},
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Select Language")),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: [
-            const SizedBox(height: 40),
-            const Text(
-              "Please select your preferred language",
-              style: TextStyle(fontSize: 18),
-            ),
-            const SizedBox(height: 30),
-            ...languages.map((lang) => RadioListTile<String>(
-              title: Text(lang),
-              value: lang,
-              groupValue: selectedLanguage,
-              onChanged: (value) {
-                setState(() {
-                  selectedLanguage = value;
-                });
-              },
-            )),
-            const SizedBox(height: 30),
-            CustomButton(
-              text: "Continue",
-              onPressed: () {
-                if (selectedLanguage != null) {
-                  Get.snackbar("Language Selected", selectedLanguage!);
-                  Get.toNamed(AppRoutes.enableLocation);
-                } else {
-                  Get.snackbar("Error", "Please select a language");
-                }
-              },
-            ),
-          ],
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 10),
+
+              // Custom back button
+              Align(
+                alignment: Alignment.topLeft,
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.grey.shade300),
+                  ),
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back_ios_new_rounded, size: 18),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              const Text(
+                "What is Your Mother Language",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                "Discover what is a podcast description and podcast summary.",
+                style: TextStyle(color: Colors.grey),
+              ),
+              const SizedBox(height: 20),
+
+              // Language list
+              Expanded(
+                child: ListView.builder(
+                  itemCount: languages.length,
+                  itemBuilder: (context, index) {
+                    final lang = languages[index];
+                    final isSelected = selectedLanguage == lang["name"];
+
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selectedLanguage = lang["name"]!;
+                        });
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(bottom: 14),
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                        decoration: BoxDecoration(
+                          color: isSelected ? Colors.white : Colors.grey.shade100,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: isSelected
+                              ? [
+                            BoxShadow(
+                              color: Colors.blue.withOpacity(0.2),
+                              blurRadius: 10,
+                              offset: const Offset(0, 4),
+                            ),
+                          ]
+                              : [],
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Text(lang["flag"]!, style: const TextStyle(fontSize: 28)),
+                                const SizedBox(width: 14),
+                                Text(
+                                  lang["name"]!,
+                                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+                              decoration: BoxDecoration(
+                                color: isSelected ? Colors.blue : Colors.grey.shade300,
+                                borderRadius: BorderRadius.circular(24),
+                              ),
+                              child: Text(
+                                isSelected ? "Selected" : "Select",
+                                style: TextStyle(
+                                  color: isSelected ? Colors.white : Colors.black87,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              // Continue Button
+              SizedBox(
+                width: double.infinity,
+                height: 54,
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Action for Continue
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF1B6EF7),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: const Text(
+                    "Continue",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600,color: Colors.white),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );

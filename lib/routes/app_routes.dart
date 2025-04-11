@@ -31,11 +31,11 @@ class AppPages {
     GetPage(name: AppRoutes.onboarding1, page: () => const OnboardingScreen1()),
     GetPage(name: AppRoutes.onboarding2, page: () => const OnboardingScreen2()),
     GetPage(name: AppRoutes.login, page: () => const LoginScreen()),
-    GetPage(name: AppRoutes.signup, page: () => SignUpScreen()),
+    GetPage(name: AppRoutes.signup, page: () =>const SignUpScreen()),
     GetPage(name: AppRoutes.forgotPassword, page: () => const ForgotPasswordScreen()),
     GetPage(name: AppRoutes.resetPassword, page: () => const ResetPasswordScreen()),
     GetPage(name: AppRoutes.verifyCode, page: () => const VerifyCodeScreen()),
-    GetPage(name: AppRoutes.selectLanguage, page: () => const SelectLanguageScreen()),
+    GetPage(name: AppRoutes.selectLanguage, page: () => const LanguageSelectionScreen()),
     GetPage(name: AppRoutes.enableLocation, page: () => const EnableLocationScreen()),
   ];
 }

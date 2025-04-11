@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final bool obscureText;
+  final Function(String)? onChanged;
 
   const CustomTextField({
     super.key,
     required this.controller,
     this.obscureText = false,
+    this.onChanged,
   });
 
   @override
@@ -28,6 +30,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return TextField(
       controller: widget.controller,
       obscureText: _obscureText,
+      onChanged: widget.onChanged,
       decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),
